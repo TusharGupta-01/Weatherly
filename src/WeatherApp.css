@@ -1,0 +1,38 @@
+.weather-bg {
+  position: relative;
+  min-height: 80vh;
+  background-image: var(--bg-image);
+  background-size: cover;        /* FIT */
+  background-position: center;   /* CENTER */
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.41);
+}
+
+.weather-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);              /* 👈 slight blur */
+  transform: scale(1.05);         /* avoids blur edges */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.weather-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* improves text contrast */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.weather-bg .content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
